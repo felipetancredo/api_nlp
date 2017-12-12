@@ -1,3 +1,8 @@
-*.log
-*.sh
-*.pyc
+*sh
+*pyc
+/data
+!/data/.gitkeep
+/results
+*.DS_Store
+/venv
+/.idea
