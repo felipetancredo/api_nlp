@@ -1,7 +1,7 @@
 import os
 import sys
 import logging
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, current_app
 from flask_cors import CORS
 
 
@@ -9,7 +9,7 @@ from serve import get_model_api
 
 
 # define the app
-app = Flask(__name__, static_folder='client')
+app = Flask(__name__)
 CORS(app) # needed for cross-domain requests, allow everything by default
 
 
@@ -46,7 +46,7 @@ def index():
 
 @app.route('/client')
 def client():
-    return app.send_static_file('full_client.html')
+    return current_app.send_static_file('full_client.html')
 
 
 # HTTP Errors handlers
