@@ -36,10 +36,9 @@ def get_model_api():
 
     # 1. initialize model once and for all
     config = Config()
-    model  = NERModel(config)
+    model = NERModel(config)
     model.build()
-    model.restore_session("results/crf/model.weights/")
-
+    model.restore_session(config.dir_model) # "results/crf/model.weights/")
 
     def model_api(input_data):
         """

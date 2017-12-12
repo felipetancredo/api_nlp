@@ -9,7 +9,7 @@ from serve import get_model_api
 
 
 # define the app
-app = Flask(__name__)
+app = Flask(__name__, static_folder='client')
 CORS(app) # needed for cross-domain requests, allow everything by default
 
 
@@ -42,6 +42,12 @@ def api():
 @app.route('/')
 def index():
     return "Index API"
+
+
+@app.route('/client')
+def client():
+    return app.send_static_file('full_client.html')
+
 
 # HTTP Errors handlers
 @app.errorhandler(404)
