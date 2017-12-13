@@ -1,23 +1,11 @@
-import os
-import sys
-import logging
 from flask import Flask, request, jsonify, current_app
 from flask_cors import CORS
-
-
 from serve import get_model_api
 
 
 # define the app
 app = Flask(__name__)
-CORS(app) # needed for cross-domain requests, allow everything by default
-
-
-# logging for heroku
-if 'DYNO' in os.environ:
-    app.logger.addHandler(logging.StreamHandler(sys.stdout))
-    app.logger.setLevel(logging.INFO)
-
+CORS(app)  # needed for cross-domain requests, allow everything by default
 
 # load the model
 model_api = get_model_api()
@@ -66,5 +54,4 @@ def server_error(e):
 
 
 if __name__ == '__main__':
-    # This is used when running locally.
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)

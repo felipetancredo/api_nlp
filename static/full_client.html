@@ -3,7 +3,7 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/custom.css">
+    <link rel="stylesheet" href="./custom.css">
 </head>
 
 
@@ -39,7 +39,7 @@
         $('#spinner').toggle();
 
         $.ajax({
-            url: "http://localhost:5000/api",
+            url: "http://127.0.0.1/api",
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(input),
